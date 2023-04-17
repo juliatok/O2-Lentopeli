@@ -1,0 +1,29 @@
+body{
+    background-color: lightcyan;
+}
+
+.mapdiv {
+    width: 1000px;
+    margin: auto;
+}
+
+#absent {
+    fill: gray;
+}
+
+.mapdiv path {
+    fill: lightgray;
+    stroke: lightcyan;
+}
+
+.mapdiv path:Hover {
+    fill: lightslategray;
+}
+
+#PT {
+    fill: red;
+}
+
+#PT:hover {
+    fill: darkred;
+}
