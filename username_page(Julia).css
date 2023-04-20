@@ -1,0 +1,37 @@
+body{
+    background-image: url("images/background_for_Lentopeli.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    font-family: 'Comfortaa', cursive;
+}
+
+.header{
+    background-color: #9F92DE;
+    width: 110%;
+    margin-left: -5%;
+    margin-right: -5%;
+    margin-top: -27px;
+}
+
+h1 {
+    padding-bottom: 30px;
+    padding-top: 30px;
+    text-align: center;
+    color: white;
+    font-size: 40px;
+    font-family: 'Berkshire Swash', cursive;
+}
+
+.laatikko {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 20%;
+    margin-right: 20%;
+    background-color: white;
+    width: 60%;
+    height: 500px;
+    border-style: solid;
+    border-color: #9F92DE;
+    border-width: 20px;
+    border-radius: 40px;
+}
