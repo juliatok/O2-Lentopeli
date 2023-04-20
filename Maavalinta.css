@@ -7,9 +7,8 @@ body{
 
 .header{
     background-color: #9F92DE;
-    width: 110%;
-    margin-left: -5%;
-    margin-right: -5%;
+    width: 101%;
+    margin: -0.5%;
     margin-top: -25px;
 }
 
@@ -27,9 +26,10 @@ h1 {
     margin-bottom: 50px;
     margin-left: 20%;
     margin-right: 20%;
+    display: block;
+    overflow: auto;
     background-color: white;
     width: 60%;
-    height: 500px;
     border-style: solid;
     border-color: #9F92DE;
     border-width: 20px;
@@ -43,28 +43,28 @@ h1 {
 
 aside {
     float: left;
-
+    width: 45%;
 }
 
 .passport {
     border-style: solid;
     border-color: #9F92DE;
-    width: 350px;
+    width: 90%;
     height: 250px;
     margin-left: 10%;
     border-radius: 10px;
 }
 
 .Kuva_div {
-    width: 75px;
-    height: 100px;
+    width: 10%;
+    height: 12%;
     float: left;
     background-color: white;
     margin: 20px;
 }
 
 .alkutiedot {
-    width: 100px;
+    width: 15%;
     height: 115px;
     padding-top: 10px;
     padding-left: 20px;
@@ -72,47 +72,53 @@ aside {
 }
 
 .muuttuvat_tiedot {
-    width: 380px;
+    width: 60%;
     margin-left: 20px;
     float: left;
 }
 
 .pisteet {
+    margin-top: 10px;
     float: left;
-    width: 100px;
+    width: 0%;
 }
 
 .pisteet_num {
     float: right;
-    width: 260px;
+    width: 0%;
 }
 
 .matka {
     float: left;
-    width: 100px;
+    width: 0%;
+    margin-top: 50px;
 }
 
 .matka_num {
     float: right;
-    width: 260px;
+    width: 0%;
+    margin-top: 50px;
 }
 
-ul{
-    width: 350px;
+#maat{
+    width: auto;
     list-style-type: none;
 }
 
-li{
-    padding-top: 5px;
-    padding-bottom: 5px;
+button{
+    padding: 10px;
+    width: 45%;
+    background-color: white;
     margin-top: 10px;
+    margin-left: 10%;
     text-align: center;
     border-color: #9F92DE;
     border-style: solid;
+    border-width: 3px;
     border-radius: 7px;
 }
 
-li:hover {
+button:hover {
     background-color: #EBCEEF;
 }
 
@@ -120,9 +126,10 @@ li:hover {
     padding-right: 2%;
     padding-top: 5%;
     padding-bottom: 5%;
-    width: 430px;
+    width: 45%;
     float: right;
     margin-right: 5%;
+    margin-bottom: 30px;
     background-color: white;
     border-style: solid;
     border-color: #9F92DE;
