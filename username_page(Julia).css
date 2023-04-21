@@ -23,8 +23,8 @@ h1 {
 }
 
 .laatikko {
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin-top: 7%;
+    margin-bottom: 5%;
     margin-left: 20%;
     margin-right: 20%;
     background-color: white;
@@ -34,4 +34,40 @@ h1 {
     border-color: #9F92DE;
     border-width: 20px;
     border-radius: 40px;
+}
+
+.kayttajanimi {
+    margin-top: 5%;
+    margin-left: 5%;
+}
+
+.kotimaa_valinta {
+    margin-left: 5%;
+}
+
+#kotimaa_valinta_laatikko {
+    border-style: solid;
+    border-radius: 15px;
+    width: 500px;
+    background-color: #ebdaef;
+}
+
+#nimi_kotimaa_tallennus {
+    text-align: center;
+}
+
+#nimi_kotimaa_tallennusnappi {
+    margin: 10px;
+    border-radius: 15px;
+    border-style: solid;
+    border-color: #fca2b3;
+    border-width: 4px;
+    background-color: #ffc6d0;
+    font-size: 25px;
+    font-family: 'Comfortaa', cursive;
+    text-align: center;
+}
+
+#nimi_kotimaa_tallennusnappi:hover {
+    background-color: #fca2b3;
 }

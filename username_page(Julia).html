@@ -20,9 +20,9 @@
 
             <h2>Mikä on nimesi?</h2>
 
-                <form>
+                <form id="nimi_laatikko">
 
-                    <input type="text" id="nimi" name="nimi">
+                    <input type="text" id="nimi" name="nimi" />
 
                 </form>
 
@@ -30,9 +30,9 @@
 
         <div class="kotimaa_valinta">
 
-            <h2>Valitse kotimaasi</h2>
+            <h2>Valitse kotimaa</h2>
 
-                <fieldset>
+                <fieldset id="kotimaa_valinta_laatikko">
 
                     <form>
 
@@ -54,6 +54,12 @@
                     </form>
 
                 </fieldset>
+
+        </div>
+
+        <div id="nimi_kotimaa_tallennus">
+
+            <input type="button" id="nimi_kotimaa_tallennusnappi" value="Aloita matka!" onclick="submitForms()" />
 
         </div>
 
