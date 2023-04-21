@@ -3,13 +3,11 @@ body{
     background-repeat: no-repeat;
     background-size: 100%;
     font-family: 'Comfortaa', cursive;
+    margin: 0;
 }
 
-.header{
+.header {
     background-color: #9F92DE;
-    width: 110%;
-    margin-left: -5%;
-    margin-right: -5%;
     margin-top: -27px;
 }
 
@@ -23,33 +21,39 @@ h1 {
 }
 
 .laatikko {
-    margin-top: 7%;
-    margin-bottom: 5%;
-    margin-left: 20%;
-    margin-right: 20%;
-    background-color: white;
-    width: 60%;
-    height: 500px;
+
+    display: block;
+    overflow: auto;
+    top: 50%;
+    left: 50%;
+    margin-left: 365px;
+    margin-top: 140px;
+    background-color: #ededff;
+    width: 1100px;
     border-style: solid;
     border-color: #9F92DE;
     border-width: 20px;
     border-radius: 40px;
+    padding: 30px;
 }
 
 .kayttajanimi {
-    margin-top: 5%;
-    margin-left: 5%;
+    margin: 3%;
 }
 
 .kotimaa_valinta {
-    margin-left: 5%;
+    margin: 3%;
 }
 
 #kotimaa_valinta_laatikko {
     border-style: solid;
+    border-width: 3px;
     border-radius: 15px;
-    width: 500px;
+    border-color: #eabeee;
+    width: 400px;
     background-color: #ebdaef;
+    padding: 20px;
+    font-size: 20px;
 }
 
 #nimi_kotimaa_tallennus {
@@ -57,7 +61,7 @@ h1 {
 }
 
 #nimi_kotimaa_tallennusnappi {
-    margin: 10px;
+    margin: 3%;
     border-radius: 15px;
     border-style: solid;
     border-color: #fca2b3;
@@ -66,6 +70,7 @@ h1 {
     font-size: 25px;
     font-family: 'Comfortaa', cursive;
     text-align: center;
+    padding: 20px;
 }
 
 #nimi_kotimaa_tallennusnappi:hover {
