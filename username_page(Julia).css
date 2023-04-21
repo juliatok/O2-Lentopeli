@@ -57,14 +57,13 @@ h1 {
     border-width: 3px;
     border-radius: 15px;
     border-color: #eabeee;
-    width: 400px;
+    width: 380px;
     background-color: #ebdaef;
     padding: 20px;
     font-size: 20px;
 }
 
 #nimi_kotimaa_tallennus {
-    text-align: center;
     float: left;
     margin: 2%;
 
