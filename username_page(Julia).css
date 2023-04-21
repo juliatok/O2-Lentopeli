@@ -24,12 +24,10 @@ h1 {
 
     display: block;
     overflow: auto;
-    top: 50%;
-    left: 50%;
-    margin-left: 365px;
-    margin-top: 140px;
+    margin-left: 420px;
+    margin-top: 130px;
     background-color: #ededff;
-    width: 1100px;
+    width: 1000px;
     border-style: solid;
     border-color: #9F92DE;
     border-width: 20px;
@@ -38,11 +36,20 @@ h1 {
 }
 
 .kayttajanimi {
-    margin: 3%;
+    margin: 2%;
+    float: left;
+}
+
+#kotimaa_vaihtoehdot_kartta {
+    margin: 2%;
+    float: right;
+    text-align: center;
+    padding: 20px;
 }
 
 .kotimaa_valinta {
-    margin: 3%;
+    margin: 2%;
+    float: left;
 }
 
 #kotimaa_valinta_laatikko {
@@ -58,10 +65,13 @@ h1 {
 
 #nimi_kotimaa_tallennus {
     text-align: center;
+    float: left;
+    margin: 2%;
+
 }
 
 #nimi_kotimaa_tallennusnappi {
-    margin: 3%;
+    margin: 2%;
     border-radius: 15px;
     border-style: solid;
     border-color: #fca2b3;
