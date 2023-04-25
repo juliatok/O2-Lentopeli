@@ -1,7 +1,6 @@
 import mysql.connector
 from flask import Flask, Response
 from flask_cors import CORS
-import random
 import json
 
 app = Flask(__name__)
@@ -17,6 +16,7 @@ cnx = mysql.connector.connect(
     autocommit=True
 )
 
+
 @app.route('/countryoptions')
 def get_country_options():
     countries = []
@@ -28,7 +28,9 @@ def get_country_options():
         countries.append(n[0])
 
     print(countries)
-    return Response(response=json.dumps(countries, ensure_ascii=False).encode('utf8'), status=200, mimetype="application/json")
+    return Response(response=json.dumps(countries, ensure_ascii=False).encode('utf8')
+                    , status=200, mimetype="application/json")
+
 
 if __name__ == '__main__':
     app.run(use_reloader=True, host='127.0.0.1', port=3000)
