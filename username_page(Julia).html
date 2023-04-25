@@ -19,51 +19,57 @@
 
     <div class="laatikko">
 
-        <form>
+        <div id="laatikko_sisallolle">
 
-        <div class="kayttajanimi">
+        <form id="form_laatikko">
 
-            <h2>Mikä on nimesi?</h2>
+                <div id="kayttajanimi">
+
+                    <h2>Mikä on nimesi?</h2>
+
+                        <input type="text" id="nimi" name="nimi" minlength="1" maxlength="20" size="20" required>
+
+                </div>
+
+                <div id="kotimaa_valinta">
+
+                    <h2>Valitse kotimaa</h2>
+
+                        <fieldset id="kotimaa_valinta_laatikko">
 
 
-                    <input type="text" id="nimi" name="nimi" minlength="1" maxlength="20" size="20" required>
+                            <div id="kotimaa_valinta_1">
+                                <input type="radio" id="kotimaa_1" name="kotimaa_valinta" value="kotimaa_1" checked>
+                                <label id="kotimaa_valinta_1_label" for="kotimaa_1"></label><br>
+                            </div>
 
+                            <div id="kotimaa_valinta_2">
+                                <input type="radio" id="kotimaa_2" name="kotimaa_valinta" value="kotimaa_2">
+                                <label id="kotimaa_valinta_2_label" for="kotimaa_2"></label><br>
+                            </div>
 
-        </div>
+                            <div id="kotimaa_valinta_3">
+                                <input type="radio" id="kotimaa_3" name="kotimaa_valinta" value="kotimaa_3">
+                                <label id="kotimaa_valinta_3_label" for="kotimaa_3"></label><br>
+                            </div>
 
-        <div class="kotimaa_valinta">
+                        </fieldset>
 
-            <h2>Valitse kotimaa</h2>
+                </div>
 
-                <fieldset id="kotimaa_valinta_laatikko">
+                <div id="tallennusnappi">
 
+                    <input type="submit" id="nimi_kotimaa_tallennusnappi" value="Aloita matka!">
 
-                        <div id="kotimaa_valinta_1">
-                            <input type="radio" id="kotimaa_1" name="kotimaa_valinta" value="kotimaa_1" checked>
-                            <label id="kotimaa_valinta_1_label" for="kotimaa_1"></label><br>
-                        </div>
-
-                        <div id="kotimaa_valinta_2">
-                            <input type="radio" id="kotimaa_2" name="kotimaa_valinta" value="kotimaa_2">
-                            <label id="kotimaa_valinta_2_label" for="kotimaa_2"></label><br>
-                        </div>
-
-                        <div id="kotimaa_valinta_3">
-                            <input type="radio" id="kotimaa_3" name="kotimaa_valinta" value="kotimaa_3">
-                            <label id="kotimaa_valinta_3_label" for="kotimaa_3"></label><br>
-                        </div>
-
-                </fieldset>
-
-        </div>
-
-            <input type="submit" id="nimi_kotimaa_tallennusnappi" value="Aloita matka!">
+                </div>
 
         </form>
 
                 <div id="kotimaa_vaihtoehdot_kartta">
 
-            <img src="images/random_europe_map.jpg" alt="Kotimaa vaihtoehdot kartta" height="430">
+                    <img src="images/random_europe_map.jpg" alt="Kotimaa vaihtoehdot kartta" height="430">
+
+                </div>
 
         </div>
 

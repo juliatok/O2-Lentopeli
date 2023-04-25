@@ -21,35 +21,38 @@ h1 {
 }
 
 .laatikko {
-
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 20%;
+    margin-right: 20%;
     display: block;
     overflow: auto;
-    margin-left: 420px;
-    margin-top: 116px;
-    background-color: #ededff;
-    width: 1000px;
+    background-color: white;
+    width: 60%;
     border-style: solid;
     border-color: #9F92DE;
     border-width: 20px;
     border-radius: 40px;
-    padding: 30px;
 }
 
-.kayttajanimi {
-    margin: 2%;
-    float: left;
+h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
 }
 
-#kotimaa_vaihtoehdot_kartta {
-    margin: 2%;
-    float: right;
-    text-align: center;
-    padding: 20px;
+
+#laatikko_sisallolle {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 30px;
 }
 
-.kotimaa_valinta {
-    margin: 2%;
-    float: left;
+#form_laatikko {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 #kotimaa_valinta_laatikko {
@@ -59,18 +62,10 @@ h1 {
     border-color: #eabeee;
     width: 380px;
     background-color: #ebdaef;
-    padding: 20px;
     font-size: 20px;
 }
 
-#nimi_kotimaa_tallennus {
-    float: left;
-    margin: 2%;
-
-}
-
 #nimi_kotimaa_tallennusnappi {
-    margin: 2%;
     border-radius: 15px;
     border-style: solid;
     border-color: #fca2b3;
@@ -84,4 +79,11 @@ h1 {
 
 #nimi_kotimaa_tallennusnappi:hover {
     background-color: #fca2b3;
+}
+
+#kotimaa_vaihtoehdot_kartta {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
