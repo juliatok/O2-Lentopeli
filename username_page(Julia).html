@@ -19,21 +19,15 @@
 
     <div class="laatikko">
 
+        <form>
+
         <div class="kayttajanimi">
 
             <h2>Mikä on nimesi?</h2>
 
-                <form id="nimi_laatikko">
 
-                    <input type="text" id="nimi" name="nimi" />
+                    <input type="text" id="nimi" name="nimi" minlength="1" maxlength="20" size="20" required>
 
-                </form>
-
-        </div>
-
-        <div id="kotimaa_vaihtoehdot_kartta">
-
-            <img src="images/random_europe_map.jpg" alt="Kotimaa vaihtoehdot kartta" height="430">
 
         </div>
 
@@ -43,32 +37,33 @@
 
                 <fieldset id="kotimaa_valinta_laatikko">
 
-                    <form>
 
                         <div id="kotimaa_valinta_1">
                             <input type="radio" id="kotimaa_1" name="kotimaa_valinta" value="kotimaa_1" checked>
-                            <label id="kotimaa_valinta_1_label" for="kotimaa_1">Kotimaa 1</label><br>
+                            <label id="kotimaa_valinta_1_label" for="kotimaa_1"></label><br>
                         </div>
 
                         <div id="kotimaa_valinta_2">
                             <input type="radio" id="kotimaa_2" name="kotimaa_valinta" value="kotimaa_2">
-                            <label id="kotimaa_valinta_2_label" for="kotimaa_2">Kotimaa 2</label><br>
+                            <label id="kotimaa_valinta_2_label" for="kotimaa_2"></label><br>
                         </div>
 
                         <div id="kotimaa_valinta_3">
                             <input type="radio" id="kotimaa_3" name="kotimaa_valinta" value="kotimaa_3">
-                            <label id="kotimaa_valinta_3_label" for="kotimaa_3">Kotimaa 3</label><br>
+                            <label id="kotimaa_valinta_3_label" for="kotimaa_3"></label><br>
                         </div>
-
-                    </form>
 
                 </fieldset>
 
         </div>
 
-        <div id="nimi_kotimaa_tallennus">
+            <input type="submit" id="nimi_kotimaa_tallennusnappi" value="Aloita matka!">
 
-            <input type="button" id="nimi_kotimaa_tallennusnappi" value="Aloita matka!" onclick="submitForms()" />
+        </form>
+
+                <div id="kotimaa_vaihtoehdot_kartta">
+
+            <img src="images/random_europe_map.jpg" alt="Kotimaa vaihtoehdot kartta" height="430">
 
         </div>
 
