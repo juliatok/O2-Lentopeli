@@ -13,7 +13,7 @@ cnx = mysql.connector.connect(
     port=3306,
     database='flight_game',
     user='root',
-    password='m!näk00d44n',
+    password='Suzu',
     autocommit=True
 )
 
@@ -50,7 +50,7 @@ class Tietokanta:
 
 @app.route('/countryoptions')
 def get_country_options():
-    connection = Tietokanta('localhost', 3306, 'flight_game', 'root', 'm!näk00d44n')
+    connection = Tietokanta('localhost', 3306, 'flight_game', 'root', 'Suzu')
     connection.connect()
     country_options = connection.get_country_options()
     print(country_options)

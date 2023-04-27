@@ -36,41 +36,61 @@ h1 {
     border-radius: 40px;
 }
 
+
+.intro {
+    text-align: center;
+    padding-top: 120px;
+    padding-bottom: 20px;
+    font-size: 25px;
+}
+
 h2 {
-    margin-left: 35%;
-}
-
-table {
-    margin-top: 60px;
-    width: 70%;
-    margin-left: 14%;
     text-align: center;
-
+    padding-top: 20px;
 }
 
-td {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid #9F92DE;
+
+ul{
+    list-style-type: none;
 }
 
-#tulos-nimi {
-    padding-right: 70px;
+.maa-lippu {
+    float:left;
+    width:33%;
 }
 
-.button {
-    margin-top: 50px;
-    margin-left: 38%;
-    background-color: #9F92DE;
-    border-radius: 10px;
-    width: 150px;
+.lippu {
+    padding-left: 70px;
+    padding-top: 20px;
+    width: 100px;
+}
+
+.maa-nimi {
+    float:left;
+    width:33%;
+}
+.maa-nimi p {
     text-align: center;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    margin-top: -10px;
 }
 
-a {
-    text-decoration: none;
-    color: white;
+.maa-sää {
+    float:left;
+    width:33%;
+}
 
+li{
+    padding-top: 20px;
+    margin-right: 60px;
+    margin-left: 30px;
+    padding-bottom: 20px;
+    margin-top: 10px;
+    text-align: center;
+    border-color: #9F92DE;
+    border-style: solid;
+    border-radius: 7px;
+}
+
+li:hover {
+    background-color: #EBCEEF;
 }
