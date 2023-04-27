@@ -83,7 +83,7 @@ aside {
     width: 0%;
 }
 
-.pisteet_num {
+#pisteet_num {
     float: right;
     width: 0%;
 }
@@ -94,7 +94,7 @@ aside {
     margin-top: 50px;
 }
 
-.matka_num {
+#matka_num {
     float: right;
     width: 0%;
     margin-top: 50px;

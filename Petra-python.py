@@ -31,6 +31,23 @@ def get_country_options():
     return Response(response=json.dumps(countries, ensure_ascii=False).encode('utf8')
                     , status=200, mimetype="application/json")
 
+"""    @app.route('/nimi&pisteet')
+    def tuloksenlisäys(käyttäjänimi, pisteet):
+        sql = "insert into käyttäjä(nimi,pisteet) values ('" + käyttäjänimi + "', '" + str(pisteet) + "')"
+        kursori = yhteys.cursor()
+        kursori.execute(sql)
+        yhteys.commit()"""
+
+@app.route('/top10')
+def leaderboard():
+    sql = "select nimi, pisteet from käyttäjä order by pisteet desc limit 10"
+    kursori = yhteys.cursor()
+    kursori.execute(sql)
+    results = kursori.fetchall()
+
+
+    return Response(response=json.dumps(results, ensure_ascii=False).encode('utf8')
+                    , status=200, mimetype="application/json")
 
 if __name__ == '__main__':
     app.run(use_reloader=True, host='127.0.0.1', port=3000)
