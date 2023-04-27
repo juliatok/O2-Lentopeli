@@ -8,16 +8,6 @@ cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
 
-cnx = mysql.connector.connect(
-    host='localhost',
-    port=3306,
-    database='flight_game',
-    user='root',
-    password='Suzu',
-    autocommit=True
-)
-
-
 class Tietokanta:
 
     def __init__(self, host, port, database, user, password):
@@ -50,7 +40,7 @@ class Tietokanta:
 
 @app.route('/countryoptions')
 def get_country_options():
-    connection = Tietokanta('localhost', 3306, 'flight_game', 'root', 'Suzu')
+    connection = Tietokanta('localhost', 3306, 'flight_game', 'root', 'm!näk00d44n')
     connection.connect()
     country_options = connection.get_country_options()
     print(country_options)
