@@ -100,14 +100,15 @@ aside {
     margin-top: 50px;
 }
 
-#maat{
+#button_div{
     width: auto;
     list-style-type: none;
+    margin-bottom: 30px;
 }
 
 button{
     padding: 10px;
-    width: 45%;
+    width: 92%;
     background-color: white;
     margin-top: 10px;
     margin-left: 10%;

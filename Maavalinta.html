@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Maavalinta</title>
      <link rel="stylesheet" href="Maavalinta.css">
+     <script src="Maavalinta.js" defer></script>
      <link rel="preconnect" href="https://fonts.googleapis.com">
      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
      <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Comfortaa&display=swap" rel="stylesheet">
@@ -20,17 +21,19 @@
                          <img src="#">
                     </div>
                     <div class="alkutiedot">
-                         <p class="nimi">Nimimerkki</p>
-                         <p class="kotimaa">Kotimaa</p>
-                         <p class="nykyinen_maa">Nykyinen maa</p>
+                         <p id="nimi">Nimimerkki</p>
+                         <p id="kotimaa">Kotimaa</p>
+                         <p id="nykyinen_maa">Nykyinen maa</p>
                     </div>
                     <div class="muuttuvat_tiedot">
                          <p class="pisteet">Pisteesi</p><p class="pisteet_num">000</p>
                          <p class="matka">Matkattu</p><p class="matka_num">0000000 Km</p>
                     </div>
                </div>
-               <div id="maat">
-                    <button class="maat">Maa</button>
+               <div id="button_div">
+                    <button id="maa1_b" value="maa1"></button>
+                    <button id="maa2_b" value="maa1"></button>
+                    <button id="maa3_b" value="maa1"></button>
                </div>
           </aside>
           <main>
