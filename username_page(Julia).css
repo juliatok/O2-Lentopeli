@@ -21,7 +21,7 @@ h1 {
 }
 
 .laatikko {
-    margin-top: 50px;
+    margin-top: 100px;
     margin-bottom: 50px;
     margin-left: 20%;
     margin-right: 20%;
@@ -86,4 +86,26 @@ h2 {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+#lopeta_peli_nappi {
+    width: 6vw;
+    right: 10vw;
+    bottom: 9vh;
+    left: 77vw;
+    position: absolute;
+    border-radius: 15px;
+    border-style: solid;
+    border-color: #fca2b3;
+    border-width: 4px;
+    background-color: #ffc6d0;
+    font-size: 25px;
+    font-family: 'Comfortaa', cursive;
+    text-align: center;
+    padding: 20px;
+    float: right;
+}
+
+#lopeta_peli_nappi:hover {
+    background-color: #fca2b3;
 }
