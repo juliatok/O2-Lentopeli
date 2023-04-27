@@ -89,7 +89,11 @@ h2 {
 }
 
 #lopeta_peli_nappi {
-    width: 10vw;
+    width: 7vw;
+    right: 10vw;
+    bottom: 9vh;
+    left: 75vw;
+    position: absolute;
     border-radius: 15px;
     border-style: solid;
     border-color: #fca2b3;
