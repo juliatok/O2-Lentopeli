@@ -21,8 +21,7 @@ h1 {
 }
 
 .laatikko {
-    margin-top: 100px;
-    margin-bottom: 50px;
+    margin-top: 6.5%;
     margin-left: 20%;
     margin-right: 20%;
     display: block;
@@ -44,12 +43,16 @@ h2 {
 #laatikko_sisallolle {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    margin: 30px;
+    justify-content: space-between;
+    padding-left: 8%;
+    padding-right: 8%;
+    padding-top: 3%;
+    padding-bottom: 3%;
 }
 
 #form_laatikko {
-    padding: 50px;
+    padding-top: 4%;
+    padding-bottom: 4%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -60,9 +63,10 @@ h2 {
     border-width: 3px;
     border-radius: 15px;
     border-color: #eabeee;
-    width: 380px;
+    width: 130%;
     background-color: #ebdaef;
     font-size: 20px;
+    padding: 9%;
 }
 
 #nimi_kotimaa_tallennusnappi {
@@ -74,7 +78,7 @@ h2 {
     font-size: 25px;
     font-family: 'Comfortaa', cursive;
     text-align: center;
-    padding: 20px;
+    padding: 9%;
 }
 
 #nimi_kotimaa_tallennusnappi:hover {
@@ -82,27 +86,23 @@ h2 {
 }
 
 #kotimaa_vaihtoehdot_kartta {
-    padding: 40px;
+    padding: 2%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
 #lopeta_peli_nappi {
-    right: 10vw;
-    bottom: 9px;
-    left: 77vw;
-    position: absolute;
+    margin-left: 83%;
     border-radius: 15px;
     border-style: solid;
     border-color: #fca2b3;
     border-width: 4px;
     background-color: #ffc6d0;
-    font-size: 25px;
+    font-size: 20px;
     font-family: 'Comfortaa', cursive;
     text-align: center;
-    padding: 20px;
-    float: right;
+    padding: 1%;
 }
 
 #lopeta_peli_nappi:hover {
