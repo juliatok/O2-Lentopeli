@@ -3,20 +3,22 @@ async function getCountries() {
 
   try {
       let response = await fetch('http://127.0.0.1:3000/randomcountry');
-      return await countries;
+      let data = response.json()
+      console.log(data)
+      return await data;
   } catch (error) {
     console.log(error.message);
   }
 }
 
 async function listCountries() {
-    getCountries().then((countries) => {
-        document.getElementById("maa1_b").innerHTML = countries[0];
-        document.getElementById("maa1_b").value = countries[0];
-        document.getElementById("maa2_b").innerHTML = countries[1];
-        document.getElementById("maa2_b").value = countries[1];
-        document.getElementById("maa3_b").innerHTML = countries[2];
-        document.getElementById("maa3_b").value = countries[2];
+    getCountries().then((potential_countries) => {
+        document.getElementById("maa1_b").innerHTML = potential_countries[0];
+        document.getElementById("maa1_b").value = potential_countries[0];
+        document.getElementById("maa2_b").innerHTML = potential_countries[1];
+        document.getElementById("maa2_b").value = potential_countries[1];
+        document.getElementById("maa3_b").innerHTML = potential_countries[2];
+        document.getElementById("maa3_b").value = potential_countries[2];
     });
 }
 
