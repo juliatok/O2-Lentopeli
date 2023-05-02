@@ -1,0 +1,31 @@
+body{
+    background-image: url("../Background_image.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    font-family: 'Comfortaa', cursive;
+}
+
+.header{
+    background-color: #9F92DE;
+    width: 101%;
+    margin: -0.5%;
+    margin-top: -25px;
+}
+
+h1 {
+    padding-bottom: 30px;
+    padding-top: 30px;
+    text-align: center;
+    color: white;
+    font-size: 40px;
+    font-family: 'Berkshire Swash', cursive;
+}
+
+
+
+
+
+
+
+
+
