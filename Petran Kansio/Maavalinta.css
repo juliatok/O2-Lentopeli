@@ -1,5 +1,5 @@
 body{
-    background-image: url("Background_image.jpg");
+    background-image: url("../Background_image.jpg");
     background-repeat: no-repeat;
     background-size: 100%;
     font-family: 'Comfortaa', cursive;
@@ -128,17 +128,109 @@ button:hover {
     padding-top: 5%;
     padding-bottom: 5%;
     width: 45%;
+    height: 100%;
     float: right;
     margin-right: 5%;
-    margin-bottom: 30px;
+    margin-bottom: auto;
+    margin-top: auto;
     background-color: white;
     border-style: solid;
     border-color: #9F92DE;
     border-radius: 15px;
 }
 
-.mapdiv path {
+#Alankomaat {
     fill: #9F92DE;
+}
+#Portugali {
+    fill: #9F92DE;
+}
+#Serbia {
+    fill: #9F92DE;
+}
+#Itävalta {
+    fill: #9F92DE;
+}
+#Italia {
+    fill: #9F92DE;
+}
+#Englanti {
+    fill: #9F92DE;
+}
+#Belgia {
+    fill: #9F92DE;
+}
+#Bulgaria {
+    fill: #9F92DE;
+}
+#Sveitsi {
+    fill: #9F92DE;
+}
+#Saksa {
+    fill: #9F92DE;
+}
+#Viro {
+    fill: #9F92DE;
+}
+#Suomi {
+    fill: #9F92DE;
+}
+#Kreikka {
+    fill: #9F92DE;
+}
+#Unkari {
+    fill: #9F92DE;
+}
+#Irlanti {
+    fill: #9F92DE;
+}
+#Islanti {
+    fill: #9F92DE;
+}
+#Latvia {
+    fill: #9F92DE;
+}
+#Moldova {
+    fill: #9F92DE;
+}
+#Montenegro {
+    fill: #9F92DE;
+}
+#Norja {
+    fill: #9F92DE;
+}
+#Puola {
+    fill: #9F92DE;
+}
+#Serbia {
+    fill: #9F92DE;
+}
+#Slovakia {
+    fill: #9F92DE;
+}
+#Slovenia {
+    fill: #9F92DE;
+}
+#Ruotsi {
+    fill: #9F92DE;
+}
+#Ukraina {
+    fill: #9F92DE;
+}
+#Espanja {
+    fill: #9F92DE;
+}
+#Ranska {
+    fill: #9F92DE;
+}
+#Kypros {
+    fill: #9F92DE;
+}
+#Romania {
+    fill: #9F92DE;
+}
+
+.mapdiv path {
     stroke: white;
 }
 
