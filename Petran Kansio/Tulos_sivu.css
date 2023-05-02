@@ -1,5 +1,5 @@
 body{
-    background-image: url("Background_image.jpg");
+    background-image: url("../Background_image.jpg");
     background-repeat: no-repeat;
     background-size: 100%;
     font-family: 'Comfortaa', cursive;
@@ -29,7 +29,7 @@ h1 {
     margin-right: 20%;
     background-color: white;
     width: 60%;
-    height: 500px;
+    height: 450px;
     border-style: solid;
     border-color: #9F92DE;
     border-width: 20px;
@@ -45,21 +45,17 @@ table {
     width: 70%;
     margin-left: 14%;
     text-align: center;
-
 }
 
-td {
+
+tbody td {
     padding-top: 10px;
     padding-bottom: 10px;
     border-bottom: 2px solid #9F92DE;
 }
 
-#tulos-nimi {
-    padding-right: 70px;
-}
-
 .button {
-    margin-top: 50px;
+    margin-top: 40px;
     margin-left: 38%;
     background-color: #9F92DE;
     border-radius: 10px;
