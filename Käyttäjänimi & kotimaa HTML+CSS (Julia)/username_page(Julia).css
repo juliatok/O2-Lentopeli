@@ -22,12 +22,12 @@ h1 {
 
 .laatikko {
     margin-top: 6.5%;
-    margin-left: 20%;
-    margin-right: 20%;
+    margin-left: 21%;
+    margin-right: 21%;
     display: block;
     overflow: auto;
     background-color: white;
-    width: 60%;
+    width: 58%;
     border-style: solid;
     border-color: #9F92DE;
     border-width: 20px;
@@ -44,10 +44,7 @@ h2 {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding-left: 8%;
-    padding-right: 8%;
-    padding-top: 3%;
-    padding-bottom: 3%;
+    padding: 3% 8%;
 }
 
 #form_laatikko {
