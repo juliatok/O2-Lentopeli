@@ -37,6 +37,16 @@ class Tietokanta:
             countries.append(n[0])
         return countries
 
+    def leaderboard(self):
+        names = []
+        sql = "select nimi, pisteet from käyttäjä order by pisteet desc limit 5"
+        kursori = self.cnx.cursor()
+        kursori.execute(sql)
+        results = kursori.fetchall()
+        for rivi in results:
+            names.append([rivi[0], rivi[1]])
+            print(names)
+        return names
 
 @app.route('/countryoptions')
 def get_country_options():
@@ -46,6 +56,16 @@ def get_country_options():
     print(country_options)
 
     return Response(response=json.dumps(country_options, ensure_ascii=False).encode('utf8'),
+                    status=200, mimetype="application/json")
+
+@app.route('/top5')
+def get_top5_list():
+    connection = Tietokanta('localhost', 3306, 'flight_game', 'root', 'Suzu')
+    connection.connect()
+    top5 = connection.leaderboard()
+    print(top5)
+
+    return Response(response=json.dumps(top5, ensure_ascii=False).encode('utf8'),
                     status=200, mimetype="application/json")
 
 
