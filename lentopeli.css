@@ -44,7 +44,7 @@ Petran Maavalita CSS
     padding-top: 20px;
 }
 
-aside {
+#Maavalikko {
     float: left;
     width: 45%;
 }
@@ -410,4 +410,128 @@ Mian aloitussivu CSS
     font-family: 'Comfortaa', cursive;
     text-align: center;
     padding: 1%;
+}
+
+/*
+Mian aloitussivu CSS
+_____________________________________________________________________________________________________________________
+Wilman Kysymys + päätös sivut CSS
+ */
+
+.kysymys-teksti {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    font-size: 25px;
+}
+
+.wimmun-h2 {
+    text-align: center;
+    padding-top: 20px;
+}
+
+.h2-tulokset {
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 5px;
+    line-height: 1.6;
+}
+
+.p-tulokset {
+    text-align: center;
+    padding-top: 4px;
+    line-height: 1.6;
+}
+
+.maa-lippu {
+    float:left;
+    width:33%;
+}
+
+.lippu {
+    padding-left: 70px;
+    padding-top: 20px;
+    width: 100px;
+}
+
+.maa-nimi {
+    float:left;
+    width:33%;
+}
+.maa-nimi p {
+    text-align: center;
+    margin-top: -10px;
+}
+
+.maa-sää {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.sää-kuva {
+    width: 80px;
+    height: 80px;
+    margin-right: 8px;
+    margin-left: 70px;
+    padding-top: 20px;
+}
+
+.sää-teksti {
+  margin: 0;
+}
+
+.vastaus-vaihtoehdot button {
+    flex-basis: 60px; /* set a specific width for the buttons */
+    margin: 5px auto; /* center the buttons horizontally */
+    padding: 3px;
+    margin-left: -2px;
+    text-align: center;
+    border-color: #9F92DE;
+    border-style: solid;
+    font-size: 18px;
+    font-family: 'Comfortaa', cursive;
+    background-color: white;
+    border-radius: 14px;
+    border-width: 5px;
+    width: 95%;
+    height: 10px;
+}
+
+.button-tulokset {
+    width: 200px;
+    height: 80px;
+    margin-top: 50px;
+    display: inline-block;
+    margin-left: 6%;
+    font-size: 18px;
+    font-family: 'Comfortaa', cursive;
+    background-color: white;
+    border-color: #9F92DE;
+    border-style: solid;
+    border-radius: 14px;
+    border-width: 5px;
+}
+
+.napit-tulokset {
+    margin-left: 21%;
+}
+
+.vastaus-vaihtoehdot {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+}
+
+.button-tulokset:hover, .vastaus-vaihtoehdot button:hover {
+  background-color: #EBCEEF;
+  cursor: pointer;
+}
+
+.button-tulokset:active, .vastaus-vaihtoehdot button:active {
+  background-color: #ae91b3;
+}
+
+.onko-oikein {
+    text-align: center;
 }
