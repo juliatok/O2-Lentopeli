@@ -38,9 +38,14 @@ document.getElementById("nimi_kotimaa_tallennusnappi").addEventListener("click",
   event.preventDefault()
 
   username = document.getElementById("nimi").value;
-  console.log(username);
   homeCountry = document.querySelector('input[name="kotimaa_valinta"]:checked').value;
-  console.log(homeCountry);
+
+  if (username.length > 0 && username.length < 21) {
+    console.log(username);
+    console.log(homeCountry);
+  } else {
+    alert("Nimen tulee olla 1-20 merkkiä pitkä!");
+  }
 });
 
 document.getElementById('maa1_b').addEventListener('click', function (event){
