@@ -12,6 +12,20 @@ body{
     margin-top: -25px;
 }
 
+.start {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 20%;
+    margin-right: 20%;
+    background-color: white;
+    width: 60%;
+    height: 300px;
+    border-style: solid;
+    border-color: #9F92DE;
+    border-width: 20px;
+    border-radius: 40px;
+}
+
 h1 {
     padding-bottom: 30px;
     padding-top: 30px;
@@ -19,6 +33,23 @@ h1 {
     color: white;
     font-size: 40px;
     font-family: 'Berkshire Swash', cursive;
+}
+
+.start h2 {
+    text-align: center;
+}
+
+.tulokset {
+    margin-left: 83%;
+    border-radius: 15px;
+    border-style: solid;
+    border-color: #fca2b3;
+    border-width: 4px;
+    background-color: #ffc6d0;
+    font-size: 20px;
+    font-family: 'Comfortaa', cursive;
+    text-align: center;
+    padding: 1%;
 }
 
 
