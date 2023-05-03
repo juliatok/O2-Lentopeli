@@ -32,6 +32,10 @@ async function update_selected_country(current_country){
   }
 }
 
+async function question_page(){
+
+}
+
 function changeColor(id, color){
     let svg = document.getElementById(id);
     svg.style.fill = color;
@@ -66,7 +70,7 @@ document.getElementById('maa1_b').addEventListener('click', function (event){
     maaLista.push(current_country)
     changeColor(current_country, 'red')
     console.log(maaLista)
-    listCountries()
+
 });
 document.getElementById('maa2_b').addEventListener('click', function (event){
     event.preventDefault()
