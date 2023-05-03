@@ -1,6 +1,7 @@
 import mysql.connector
 from flask import Flask, Response
 from flask_cors import CORS
+import random
 import json
 
 app = Flask(__name__)
@@ -10,7 +11,7 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 
 class Tietokanta:
 
-    def __init__(self, host, port, database, user, password="m!näk00d44n"):
+    def __init__(self, host, port, database, user, password="Suzu"):
         self.host = host
         self.port = port
         self.database = database
@@ -74,6 +75,87 @@ class Tietokanta:
                     print('Mukana Visited: ' + country)
         return potential_countries
 
+    def hae_kenttä(self, maa):
+        print("Arvottu maa:", maa)
+        kentät = []
+        sql = "select airport.name, airport.municipality from airport, maat where nimi = '" + str(
+            maa) + "' and airport.iso_country = maat.iso_country and type = 'large_airport' order by rand() limit 1"
+        cursor = self.cnx.cursor()
+        cursor.execute(sql)
+        result = cursor.fetchall()
+        length = len(result)
+
+        if length != 0:
+            for n in result:
+                kentät.append(n[0])
+                kentät.append(n[1])
+                print(kentät)
+            return kentät
+        else:
+            sql = "select airport.name, airport.municipality from airport, maat where nimi = '" + str(
+                maa) + "' and airport.iso_country = maat.iso_country and type = 'medium_airport' order by rand() limit 1"
+            cursor = self.cnx.cursor()
+            cursor.execute(sql)
+            result = cursor.fetchall()
+            for n in result:
+                kentät.append(n[0])
+                kentät.append(n[1])
+        return kentät
+
+    def get_question(self, id):
+        kysymys = []
+        sql = "select ID, kysymys from vastaukset where paikka_id = '" + str(id) + "'"
+        cursor = self.cnx.cursor()
+        cursor.execute(sql)
+        kysymykset = cursor.fetchall()
+        kysyttava_kysymys = random.choice(kysymykset)
+        for n in kysyttava_kysymys:
+            kysymys.append(n)
+        print("Kysyttävä kysymys:", kysymys[1])
+        return kysymys
+
+    def get_correct_question(self, id):
+        kysymys = []
+        sql = "select oikein from vastaukset where id = '" + str(id) + "'"
+        cursor = self.cnx.cursor()
+        cursor.execute(sql)
+        kysymykset = cursor.fetchall()
+        print("Oikea vastaus:", kysymykset[0])
+        for n in kysymykset:
+            kysymys.append(n)
+        return kysymys
+
+    def get_vastaus(self, id):
+        sql = "select oikein, väärin1, väärin2 from vastaukset where ID = '" + str(id) + "'"
+        cursor = self.cnx.cursor()
+        cursor.execute(sql)
+        ret = list(cursor.fetchall()[0])  # tekee listan tuplesta
+
+        vastausvaihtoehdot = []
+        vastausvaihtoehdot.append([ret[0], "oikein"])
+        vastausvaihtoehdot.append([ret[1], "väärin"])
+        vastausvaihtoehdot.append([ret[2], "väärin"])
+
+        random.shuffle(vastausvaihtoehdot)
+
+        vastausvaihtoehdot[0].append("A")
+        vastausvaihtoehdot[1].append("B")
+        vastausvaihtoehdot[2].append("C")
+
+        print("Vastausvaihtoehdot:", vastausvaihtoehdot)
+
+        return vastausvaihtoehdot
+
+    def get_country(self):
+        tulos = []
+        sql = "select Nimi, iso_country, ID from maat ORDER BY RAND() LIMIT 1"
+        cursor = self.cnx.cursor()
+        cursor.execute(sql)
+        result = cursor.fetchall()
+        for n in result:
+            tulos.append(n)
+        return tulos
+
 @app.route('/countryoptions')
 def get_country_options():
     connection = Tietokanta('localhost', 3306, 'flight_game', 'root')
@@ -83,6 +165,35 @@ def get_country_options():
 
     return Response(response=json.dumps(country_options, ensure_ascii=False).encode('utf8'),
                     status=200, mimetype="application/json")
+
+@app.route('/haemaankenttä/<maa>')
+def get_kenttä(maa):
+    connection = Tietokanta('localhost', 3306, 'flight_game', 'root')
+    connection.connect()
+    kenttä = connection.hae_kenttä(maa)
+    print(kenttä)
+
+    return Response(response=json.dumps(kenttä, ensure_ascii=False).encode('utf8'),
+                    status=200, mimetype="application/json")
+@app.route('/haemaankysymys/<id>')
+def kysymys(id):
+    connection = Tietokanta('localhost', 3306, 'flight_game', 'root')
+    connection.connect()
+    kysymys = connection.get_question(id)
+    print(kysymys)
+
+    return Response(response=json.dumps(kysymys, ensure_ascii=False).encode('utf8'),
+                    status=200, mimetype="application/json")
+
+@app.route('/haeoikeavastaus/<id>')
+def oikein(id):
+    connection = Tietokanta('localhost', 3306, 'flight_game', 'root')
+    connection.connect()
+    oikein = connection.get_correct_question(id)
+    print(oikein)
+
+    return Response(response=json.dumps(oikein, ensure_ascii=False).encode('utf8')
+                    , status=200, mimetype="application/json")
 
 @app.route('/randomcountry')
 def get_random_country_list():
@@ -103,6 +214,16 @@ def add_selected_country(current_country):
     return Response(response=json.dumps(visited_countries, ensure_ascii=False).encode('utf8')
                     , status=200, mimetype="application/json")
 
+@app.route('/haevastaukset/<id>')
+def hae_vastaukset(id):
+    connection = Tietokanta('localhost', 3306, 'flight_game', 'root')
+    connection.connect()
+    vastaus = connection.get_vastaus(id)
+    print(vastaus)
+
+    return Response(response=json.dumps(vastaus, ensure_ascii=False).encode('utf8')
+                    , status=200, mimetype="application/json")
+
 @app.route('/top5')
 def get_top5_list():
     connection = Tietokanta('localhost', 3306, 'flight_game', 'root')
@@ -111,6 +232,16 @@ def get_top5_list():
     print(top5)
 
     return Response(response=json.dumps(top5, ensure_ascii=False).encode('utf8'),
+                    status=200, mimetype="application/json")
+
+@app.route('/haerandommaa')
+def hae_maa():
+    connection = Tietokanta('localhost', 3306, 'flight_game', 'root')
+    connection.connect()
+    country = connection.get_country()
+    print(country)
+
+    return Response(response=json.dumps(country, ensure_ascii=False).encode('utf8'),
                     status=200, mimetype="application/json")
 
 visited_countries = []
