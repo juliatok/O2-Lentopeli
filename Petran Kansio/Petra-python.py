@@ -17,20 +17,6 @@ yhteys = mysql.connector.connect(
     autocommit=True
 )
 
-class pelaaja:
-
-    visited_countries = []
-    def __init__(self,kotimaa,pisteet,matka):
-        self.kotimaa = kotimaa
-        self.pisteet = pisteet
-        self.matka = matka
-
-    def add_homecountry(self,kotimaa):
-        pelaaja.visited_countries.append(kotimaa)
-
-    def update_country(self, current_country):
-        pelaaja.visited_countries.append(current_country)
-
 @app.route('/countryoptions')
 def get_country_options():
     countries = []
@@ -48,29 +34,43 @@ def get_country_options():
 @app.route('/randomcountry')
 def random_country():
     potential_countries = []
+    country_check = []
+    for v_country in visited_countries:
+        country_check.append(v_country)
     kerrat = 0
     while kerrat < 3:
         sql = "select Nimi from maat ORDER BY RAND() LIMIT 1"
         cursor = yhteys.cursor()
         cursor.execute(sql)
         result = cursor.fetchall()
+        """print(result)"""
         for n in result:
-            if n not in pelaaja.visited_countries:
-                if n not in potential_countries:
-                    potential_countries.append(n)
+            country = n[0]
+            if country not in country_check:
+                print(country)
+                print(country_check)
+                if country not in potential_countries:
+                    potential_countries.append(country)
                     kerrat = kerrat + 1
-    return potential_countries
+                else:
+                    print('Mukana Potential: ' + country)
+            else:
+                print('Mukana Visited: ' + country)
 
-    print(result)
-    return Response(response=json.dumps(result, ensure_ascii=False).encode('utf8')
+    return Response(response=json.dumps(potential_countries, ensure_ascii=False).encode('utf8')
                     , status=200, mimetype="application/json")
 
-@app.route('/currentcountry')
-def current_country(current_country):
-    pelaaja.update_country(current_country)
+@app.route('/add_selected_country/<current_country>')
+def add_selected_country(current_country):
+    print("Python saa nykyisen maan: " + current_country)
+    visited_countries.append(current_country)
+    """print(visited_countries)"""
+
+    return Response(response=json.dumps(visited_countries, ensure_ascii=False).encode('utf8')
+                    , status=200, mimetype="application/json")
 
 
-"""    @app.route('/nimi&pisteet')
+"""    @app.route('/nimi&pisteet/<username>&<pisteet>')
     def tuloksenlisäys(käyttäjänimi, pisteet):
         sql = "insert into käyttäjä(nimi,pisteet) values ('" + käyttäjänimi + "', '" + str(pisteet) + "')"
         kursori = yhteys.cursor()
@@ -94,6 +94,8 @@ def leaderboard():
 kotimaa = "Suomi"
 pisteet = 200
 matka = 3000
+
+visited_countries = []
 
 if __name__ == '__main__':
     app.run(use_reloader=True, host='127.0.0.1', port=3000)

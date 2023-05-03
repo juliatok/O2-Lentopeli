@@ -22,6 +22,16 @@ async function listCountries() {
     });
 }
 
+async function update_selected_country(current_country){
+    try {
+      const response = await fetch('http://127.0.0.1:3000/add_selected_country/' + current_country);
+      let data = response.json()
+      console.log(data)
+  } catch (error) {
+    console.log(error.message);
+  }
+}
+
 function changeColor(id, color){
     let svg = document.getElementById(id);
     svg.style.fill = color;
@@ -29,25 +39,28 @@ function changeColor(id, color){
 
 let username = "Temporary";
 let kotimaa = "Suomi";
-let current_country = "";
+let current_country = kotimaa;
 
 const maaLista = [kotimaa];
 
 let pisteet = 200;
 let matka = 3000;
 
+update_selected_country(current_country)
+
 document.getElementById("nimi").innerHTML = username;
 document.getElementById("kotimaa").innerHTML = kotimaa;
-document.getElementById("nykyinen_maa").innerHTML = kotimaa;
+document.getElementById("nykyinen_maa").innerHTML = current_country;
 
 document.getElementById("pisteet_num").innerHTML = pisteet;
 document.getElementById("matka_num").innerHTML = matka + " km"
 
-listCountries();
+listCountries(current_country);
 document.getElementById('maa1_b').addEventListener('click', function (event){
     event.preventDefault()
 
     current_country = document.getElementById("maa1_b").value;
+    update_selected_country(current_country)
     console.log(current_country);
     document.getElementById("nykyinen_maa").innerHTML = current_country;
     maaLista.push(current_country)
@@ -59,6 +72,7 @@ document.getElementById('maa2_b').addEventListener('click', function (event){
     event.preventDefault()
 
     current_country = document.getElementById("maa2_b").value;
+    update_selected_country(current_country)
     console.log(current_country);
     document.getElementById("nykyinen_maa").innerHTML = current_country;
     maaLista.push(current_country)
@@ -71,6 +85,7 @@ document.getElementById('maa3_b').addEventListener('click', function (event){
     event.preventDefault()
 
     current_country = document.getElementById("maa3_b").value;
+    update_selected_country(current_country)
     console.log(current_country);
     document.getElementById("nykyinen_maa").innerHTML = current_country;
     maaLista.push(current_country)
