@@ -396,7 +396,12 @@ Mian aloitussivu CSS
 }
 
 .start h2 {
+    padding-top: 15px;
     text-align: center;
+}
+
+.start a {
+    text-decoration: none;
 }
 
 .tulokset {
@@ -412,6 +417,9 @@ Mian aloitussivu CSS
     padding: 1%;
 }
 
+.tulokset a {
+    text-decoration: none;
+}
 /*
 Mian aloitussivu CSS
 _____________________________________________________________________________________________________________________
