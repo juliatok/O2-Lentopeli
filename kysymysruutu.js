@@ -63,7 +63,7 @@ async function checkAnswer(event, oikea_vastaus) {
   button3.disabled = true;
 
   setTimeout(() => { // Odottaa kaksi sekuntia ja lataa sivun uudestaan
-    location.reload(); // window.location.href = "Maanvalinta.html";
+     window.location.href = "Maavalinta.html";
   }, 2000);
 }
 
