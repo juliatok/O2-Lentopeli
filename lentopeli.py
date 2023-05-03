@@ -156,6 +156,7 @@ class Tietokanta:
             tulos.append(n)
         return tulos
 
+
 @app.route('/countryoptions')
 def get_country_options():
     connection = Tietokanta('localhost', 3306, 'flight_game', 'root')
@@ -166,6 +167,7 @@ def get_country_options():
     return Response(response=json.dumps(country_options, ensure_ascii=False).encode('utf8'),
                     status=200, mimetype="application/json")
 
+
 @app.route('/haemaankenttä/<maa>')
 def get_kenttä(maa):
     connection = Tietokanta('localhost', 3306, 'flight_game', 'root')
@@ -175,6 +177,8 @@ def get_kenttä(maa):
 
     return Response(response=json.dumps(kenttä, ensure_ascii=False).encode('utf8'),
                     status=200, mimetype="application/json")
+
+
 @app.route('/haemaankysymys/<id>')
 def kysymys(id):
     connection = Tietokanta('localhost', 3306, 'flight_game', 'root')
@@ -184,6 +188,7 @@ def kysymys(id):
 
     return Response(response=json.dumps(kysymys, ensure_ascii=False).encode('utf8'),
                     status=200, mimetype="application/json")
+
 
 @app.route('/haeoikeavastaus/<id>')
 def oikein(id):
@@ -195,6 +200,7 @@ def oikein(id):
     return Response(response=json.dumps(oikein, ensure_ascii=False).encode('utf8')
                     , status=200, mimetype="application/json")
 
+
 @app.route('/randomcountry')
 def get_random_country_list():
     connection = Tietokanta('localhost', 3306, 'flight_game', 'root')
@@ -205,6 +211,7 @@ def get_random_country_list():
     return Response(response=json.dumps(country_list, ensure_ascii=False).encode('utf8')
                     , status=200, mimetype="application/json")
 
+
 @app.route('/add_selected_country/<current_country>')
 def add_selected_country(current_country):
     print("Python saa nykyisen maan: " + current_country)
@@ -213,6 +220,7 @@ def add_selected_country(current_country):
 
     return Response(response=json.dumps(visited_countries, ensure_ascii=False).encode('utf8')
                     , status=200, mimetype="application/json")
+
 
 @app.route('/haevastaukset/<id>')
 def hae_vastaukset(id):
@@ -224,6 +232,7 @@ def hae_vastaukset(id):
     return Response(response=json.dumps(vastaus, ensure_ascii=False).encode('utf8')
                     , status=200, mimetype="application/json")
 
+
 @app.route('/top5')
 def get_top5_list():
     connection = Tietokanta('localhost', 3306, 'flight_game', 'root')
@@ -234,6 +243,7 @@ def get_top5_list():
     return Response(response=json.dumps(top5, ensure_ascii=False).encode('utf8'),
                     status=200, mimetype="application/json")
 
+
 @app.route('/haerandommaa')
 def hae_maa():
     connection = Tietokanta('localhost', 3306, 'flight_game', 'root')
@@ -243,6 +253,7 @@ def hae_maa():
 
     return Response(response=json.dumps(country, ensure_ascii=False).encode('utf8'),
                     status=200, mimetype="application/json")
+
 
 visited_countries = []
 
