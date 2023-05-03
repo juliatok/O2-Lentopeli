@@ -10,7 +10,7 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 
 class Tietokanta:
 
-    def __init__(self, host, port, database, user, password):
+    def __init__(self, host, port, database, user, password="m!näk00d44n"):
         self.host = host
         self.port = port
         self.database = database
@@ -76,7 +76,7 @@ class Tietokanta:
 
 @app.route('/countryoptions')
 def get_country_options():
-    connection = Tietokanta('localhost', 3306, 'flight_game', 'root', 'Suzu')
+    connection = Tietokanta('localhost', 3306, 'flight_game', 'root')
     connection.connect()
     country_options = connection.get_country_options()
     print(country_options)
@@ -86,7 +86,7 @@ def get_country_options():
 
 @app.route('/randomcountry')
 def get_random_country_list():
-    connection = Tietokanta('localhost', 3306, 'flight_game', 'root', 'Suzu')
+    connection = Tietokanta('localhost', 3306, 'flight_game', 'root')
     connection.connect()
     country_list = connection.random_country()
     print(country_list)
@@ -105,7 +105,7 @@ def add_selected_country(current_country):
 
 @app.route('/top5')
 def get_top5_list():
-    connection = Tietokanta('localhost', 3306, 'flight_game', 'root', 'Suzu')
+    connection = Tietokanta('localhost', 3306, 'flight_game', 'root')
     connection.connect()
     top5 = connection.leaderboard()
     print(top5)
