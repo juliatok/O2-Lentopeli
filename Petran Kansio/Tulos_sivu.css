@@ -36,7 +36,7 @@ h1 {
     border-radius: 40px;
 }
 
-h2 {
+.tulos_otsikko {
     margin-left: 35%;
 }
 
@@ -65,8 +65,7 @@ tbody td {
     padding-bottom: 15px;
 }
 
-a {
+#Takaisin_nappi {
     text-decoration: none;
     color: white;
-
 }

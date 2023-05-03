@@ -247,7 +247,47 @@ aside {
 /*
 Petran Maavalita CSS
 _____________________________________________________________________________________________________________________
-XXX CSS
+Petran Tulos CSS
+ */
+
+.tulos_otsikko {
+    margin-left: 35%;
+}
+
+table {
+    margin-top: 60px;
+    width: 70%;
+    margin-left: 14%;
+    text-align: center;
+}
+
+
+tbody td {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #9F92DE;
+}
+
+.button {
+    margin-top: 40px;
+    margin-left: 38%;
+    background-color: #9F92DE;
+    border-radius: 10px;
+    width: 150px;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+#Takaisin_nappi {
+    text-decoration: none;
+    color: white;
+}
+
+/*
+Petran Tulos CSS
+_____________________________________________________________________________________________________________________
+Julian Username_page CSS
  */
 
 .käyttäjänimi_laatikko {
