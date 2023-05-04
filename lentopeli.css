@@ -59,11 +59,11 @@ Petran Maavalita CSS
 }
 
 .Kuva_div {
-    width: 10%;
-    height: 12%;
+    width: 19%;
+    height: 10px;
     float: left;
     background-color: white;
-    margin: 20px;
+    margin: 25px;
 }
 
 .Kuva_div img{
@@ -80,6 +80,7 @@ Petran Maavalita CSS
 
 .muuttuvat_tiedot {
     width: 60%;
+    margin-top: 10px;
     margin-left: 20px;
     float: left;
 }
