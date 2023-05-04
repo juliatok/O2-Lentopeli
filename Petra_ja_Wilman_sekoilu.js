@@ -252,8 +252,5 @@ function changeColor(id, color){
     svg.style.fill = color;
 }
 
-
-
-
 main();
 
