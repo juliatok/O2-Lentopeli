@@ -254,11 +254,12 @@ Petran Tulos CSS
  */
 
 .tulos_otsikko {
+    padding-top: 30px;
     margin-left: 35%;
 }
 
 table {
-    margin-top: 60px;
+    margin-top: 40px;
     width: 70%;
     margin-left: 14%;
     text-align: center;
@@ -274,6 +275,7 @@ tbody td {
 .button {
     margin-top: 40px;
     margin-left: 38%;
+    margin-bottom: 20px;
     background-color: #9F92DE;
     border-radius: 10px;
     width: 150px;
@@ -525,6 +527,7 @@ Wilman Kysymys + päätös sivut CSS
     border-style: solid;
     border-radius: 14px;
     border-width: 5px;
+    margin-bottom: 50px;
 }
 
 .napit-tulokset {

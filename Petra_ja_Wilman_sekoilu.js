@@ -150,7 +150,7 @@ async function checkAnswer(event, oikea_vastaus) {
         kysymykset++;
         localStorage.setItem("questionsAsked",kysymykset)
         console.log("KYSYMYKSIÄ KYSYTTY:",kysymykset)
-  if (kysymykset === 3) {
+  if (kysymykset === 5) {
         localStorage.setItem("questionsAsked",0)
         console.log('Tuloksiin')
         window.location.href = "tulokset.html";
