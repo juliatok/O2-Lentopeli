@@ -9,7 +9,7 @@ const button3 = document.getElementById("vaihtoehto3");
 
 let username = "Temporary";
 let kotimaa = "Suomi";
-let current_country = kotimaa;
+let current_country = kotimaa
 
 const maaLista = [kotimaa];
 
@@ -43,7 +43,6 @@ async function listCountries() {
     });
     current_country = maabutton_listner()
     console.log('listcountry funktio' + current_country)
-    return current_country
 }
 
 async function update_selected_country(current_country){
@@ -60,6 +59,7 @@ async function update_selected_country(current_country){
 async function main() {
   try {
     try {
+
       document.getElementById("nimi").innerHTML = username;
       document.getElementById("kotimaa").innerHTML = kotimaa;
       document.getElementById("nykyinen_maa").innerHTML = current_country;
@@ -105,12 +105,24 @@ async function main() {
     const correctAnswer = await haeOikeaVastaus(kysymys[0]); // haetaan kysymyksen oikea vastaus. Kysymys[0] on kysymyksen id
     button1.addEventListener("click", async function(event) {
       checkAnswer(event, correctAnswer); // tarkistetaan onko vastaus oikein
+        setTimeout(() => { // Odottaa kaksi sekuntia ja lataa sivun uudestaan
+      window.location.href = "Maavalinta.html";
+      console.log('Loppu')
+  }, 2000);
     });
     button2.addEventListener("click", async function(event) {
       checkAnswer(event, correctAnswer);
+      setTimeout(() => { // Odottaa kaksi sekuntia ja lataa sivun uudestaan
+      window.location.href = "Maavalinta.html";
+      console.log('Loppu')
+  }, 2000);
     });
     button3.addEventListener("click", async function(event) {
       checkAnswer(event, correctAnswer);
+      setTimeout(() => { // Odottaa kaksi sekuntia ja lataa sivun uudestaan
+      window.location.href = "Maavalinta.html";
+      console.log('Loppu')
+  }, 2000);
     });
   } catch (error) {
     console.log(error.message);
@@ -134,9 +146,15 @@ async function checkAnswer(event, oikea_vastaus) {
   button2.disabled = true;
   button3.disabled = true;
 
-  setTimeout(() => { // Odottaa kaksi sekuntia ja lataa sivun uudestaan
-     window.location.href = "Maavalinta.html";
-  }, 2000);
+  let kysymykset = localStorage.getItem("questionsAsked")
+        kysymykset++;
+        localStorage.setItem("questionsAsked",kysymykset)
+        console.log("KYSYMYKSIÄ KYSYTTY:",kysymykset)
+  if (kysymykset === 3) {
+        localStorage.setItem("questionsAsked",0)
+        console.log('Tuloksiin')
+        window.location.href = "tulokset.html";
+}
 }
 
 async function haeOikeaVastaus(kysymys_id) {
@@ -205,7 +223,6 @@ async function maabutton_listner(){
     setTimeout(() => { // Odottaa kaksi sekuntia ja lataa kysymys sivun
         window.location.href = "kysymysruutu.html";
         }, 2000);
-    return current_country
 
     });
     maabutton2.addEventListener('click', function (event){
