@@ -333,7 +333,7 @@ h2 {
     border-width: 3px;
     border-radius: 15px;
     border-color: #eabeee;
-    width: 130%;
+    width: 115%;
     background-color: #ebdaef;
     font-size: 20px;
     padding: 9%;
@@ -349,6 +349,7 @@ h2 {
     font-family: 'Comfortaa', cursive;
     text-align: center;
     padding: 9%;
+    cursor: pointer;
 }
 
 #nimi_kotimaa_tallennusnappi:hover {
@@ -373,6 +374,7 @@ h2 {
     font-family: 'Comfortaa', cursive;
     text-align: center;
     padding: 1%;
+    cursor: pointer;
 }
 
 #lopeta_peli_nappi:hover {
@@ -400,7 +402,12 @@ Mian aloitussivu CSS
 }
 
 .start h2 {
+    padding-top: 15px;
     text-align: center;
+}
+
+.start a {
+    text-decoration: none;
 }
 
 .tulokset {
@@ -416,6 +423,9 @@ Mian aloitussivu CSS
     padding: 1%;
 }
 
+.tulokset a {
+    text-decoration: none;
+}
 /*
 Mian aloitussivu CSS
 _____________________________________________________________________________________________________________________
