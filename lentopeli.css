@@ -294,13 +294,11 @@ Julian Username_page CSS
  */
 
 .käyttäjänimi_laatikko {
-    margin-top: 6%;
-    margin-left: 21%;
-    margin-right: 21%;
+    margin: 50px 20%;
     display: block;
     overflow: auto;
     background-color: #ededfd;
-    width: 58%;
+    width: 60%;
     border-style: solid;
     border-color: #9F92DE;
     border-width: 20px;
