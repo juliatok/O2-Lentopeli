@@ -26,7 +26,7 @@ async function listCountries() {
 }
 
 function toQuestions() {
-  window.location.href = "Maavalinta.html/";
+  window.location.href = "Maavalinta.html";
 }
 
 getCountries().then((countries) => {
