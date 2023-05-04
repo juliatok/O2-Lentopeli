@@ -148,7 +148,7 @@ class Tietokanta:
 
     def get_country(self, maa):
         tulos = []
-        sql = "select Nimi, iso_country, ID from maat ORDER BY RAND() LIMIT 1"
+        sql = "select Nimi, iso_country, ID from maat where Nimi = '" +str(maa)+ "'"
         cursor = self.cnx.cursor()
         cursor.execute(sql)
         result = cursor.fetchall()
