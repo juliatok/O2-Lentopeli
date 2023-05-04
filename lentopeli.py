@@ -11,7 +11,7 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 
 class Tietokanta:
 
-    def __init__(self, host, port, database, user, password="m!näk00d44n"):
+    def __init__(self, host, port, database, user, password="Suzu"):
         self.host = host
         self.port = port
         self.database = database
@@ -146,9 +146,9 @@ class Tietokanta:
 
         return vastausvaihtoehdot
 
-    def get_country(self):
+    def get_country(self, maa):
         tulos = []
-        sql = "select Nimi, iso_country, ID from maat ORDER BY RAND() LIMIT 1"
+        sql = "select Nimi, iso_country, ID from maat where Nimi ='" + str(maa) + "'"
         cursor = self.cnx.cursor()
         cursor.execute(sql)
         result = cursor.fetchall()
@@ -209,6 +209,7 @@ def get_random_country_list():
 def add_selected_country(current_country):
     print("Python saa nykyisen maan: " + current_country)
     visited_countries.append(current_country)
+
     """print(visited_countries)"""
 
     return Response(response=json.dumps(visited_countries, ensure_ascii=False).encode('utf8')
@@ -234,17 +235,19 @@ def get_top5_list():
     return Response(response=json.dumps(top5, ensure_ascii=False).encode('utf8'),
                     status=200, mimetype="application/json")
 
-@app.route('/haerandommaa')
-def hae_maa():
+@app.route('/haerandommaa/<maa>')
+def hae_random_maa(maa):
     connection = Tietokanta('localhost', 3306, 'flight_game', 'root')
     connection.connect()
-    country = connection.get_country()
-    print(country)
+
+    country = connection.get_country(maa)
+    print('hae random maan: ', country)
 
     return Response(response=json.dumps(country, ensure_ascii=False).encode('utf8'),
                     status=200, mimetype="application/json")
 
 visited_countries = []
+current_country = ""
 
 if __name__ == '__main__':
     app.run(use_reloader=True, host='127.0.0.1', port=3000)

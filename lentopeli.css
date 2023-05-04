@@ -66,6 +66,10 @@ Petran Maavalita CSS
     margin: 20px;
 }
 
+.Kuva_div img{
+    width: 100%;
+}
+
 .alkutiedot {
     width: 15%;
     height: 115px;

@@ -11,16 +11,7 @@ async function getCountries() {
   }
 }
 
-async function listCountries() {
-    getCountries().then((potential_countries) => {
-        document.getElementById("maa1_b").innerHTML = potential_countries[0];
-        document.getElementById("maa1_b").value = potential_countries[0];
-        document.getElementById("maa2_b").innerHTML = potential_countries[1];
-        document.getElementById("maa2_b").value = potential_countries[1];
-        document.getElementById("maa3_b").innerHTML = potential_countries[2];
-        document.getElementById("maa3_b").value = potential_countries[2];
-    });
-}
+
 
 async function update_selected_country(current_country){
     try {
@@ -32,8 +23,59 @@ async function update_selected_country(current_country){
   }
 }
 
-async function question_page(){
+async function maabutton_listner(){
+    maabutton1.addEventListener('click', function (event){
+    event.preventDefault()
 
+    current_country = document.getElementById("maa1_b").value;
+    update_selected_country(current_country)
+    console.log(current_country);
+    document.getElementById("nykyinen_maa").innerHTML = current_country;
+    maaLista.push(current_country)
+    changeColor(current_country, 'red')
+    console.log(maaLista)
+    maabutton1.disabled = true;
+
+    setTimeout(() => { // Odottaa kaksi sekuntia ja lataa kysymys sivun
+        window.location.href = "kysymysruutu.html";
+        }, 2000);
+
+    });
+    maabutton2.addEventListener('click', function (event){
+        event.preventDefault()
+
+        current_country = document.getElementById("maa2_b").value;
+        update_selected_country(current_country)
+        console.log(current_country);
+        document.getElementById("nykyinen_maa").innerHTML = current_country;
+        maaLista.push(current_country)
+        changeColor(current_country, 'red')
+        console.log(maaLista)
+        maabutton2.disabled = true;
+
+        setTimeout(() => { // Odottaa kaksi sekuntia ja lataa kysymys sivun
+            window.location.href = "kysymysruutu.html";
+            console.log("Toimii")
+            }, 2000);
+
+        });
+
+    maabutton3.addEventListener('click', function (event){
+        event.preventDefault()
+
+        current_country = document.getElementById("maa3_b").value;
+        update_selected_country(current_country)
+        console.log(current_country);
+        document.getElementById("nykyinen_maa").innerHTML = current_country;
+        maaLista.push(current_country)
+        changeColor(current_country, 'red')
+        console.log(maaLista)
+        maabutton3.disabled = true;
+
+        setTimeout(() => { // Odottaa kaksi sekuntia ja lataa kysymys sivun
+            window.location.href = "kysymysruutu.html";
+            }, 2000);
+    });
 }
 
 function changeColor(id, color){
@@ -59,41 +101,9 @@ document.getElementById("nykyinen_maa").innerHTML = current_country;
 document.getElementById("pisteet_num").innerHTML = pisteet;
 document.getElementById("matka_num").innerHTML = matka + " km"
 
+const maabutton1 = document.getElementById('maa1_b')
+const maabutton2 = document.getElementById('maa2_b')
+const maabutton3 = document.getElementById('maa3_b')
+
 listCountries(current_country);
-document.getElementById('maa1_b').addEventListener('click', function (event){
-    event.preventDefault()
 
-    current_country = document.getElementById("maa1_b").value;
-    update_selected_country(current_country)
-    console.log(current_country);
-    document.getElementById("nykyinen_maa").innerHTML = current_country;
-    maaLista.push(current_country)
-    changeColor(current_country, 'red')
-    console.log(maaLista)
-
-});
-document.getElementById('maa2_b').addEventListener('click', function (event){
-    event.preventDefault()
-
-    current_country = document.getElementById("maa2_b").value;
-    update_selected_country(current_country)
-    console.log(current_country);
-    document.getElementById("nykyinen_maa").innerHTML = current_country;
-    maaLista.push(current_country)
-    changeColor(current_country, 'red')
-    console.log(maaLista)
-    listCountries()
-    });
-
-document.getElementById('maa3_b').addEventListener('click', function (event){
-    event.preventDefault()
-
-    current_country = document.getElementById("maa3_b").value;
-    update_selected_country(current_country)
-    console.log(current_country);
-    document.getElementById("nykyinen_maa").innerHTML = current_country;
-    maaLista.push(current_country)
-    changeColor(current_country, 'red')
-    console.log(maaLista)
-    listCountries()
-});

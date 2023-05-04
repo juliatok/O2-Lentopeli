@@ -23,12 +23,17 @@ async function main() {
     document.getElementById("vaihtoehto2").innerHTML = vastaukset[1][0];
     document.getElementById("vaihtoehto3").innerHTML = vastaukset[2][0];
     document.getElementById("lippu").src = `https://flagsapi.com/${haettuMaa[0][1]}/shiny/64.png`;
-    const säätilaData = await haeSäätila(kenttä[1]);
-    const tempCelsius = kelvinToCelsius(säätilaData.main.temp);
-    const iconUrl = haeSäätilaKuva(säätilaData.weather[0].icon);
-    tempElement.innerHTML = `${tempCelsius} &deg;C`;
-    iconElement.setAttribute("src", iconUrl);
-    iconElement.setAttribute("alt", säätilaData.weather[0].description);
+    try {
+      const säätilaData = await haeSäätila(kenttä[1]);
+      const tempCelsius = kelvinToCelsius(säätilaData.main.temp);
+      const iconUrl = haeSäätilaKuva(säätilaData.weather[0].icon);
+      tempElement.innerHTML = `${tempCelsius}&deg;C`;
+      iconElement.setAttribute("src", iconUrl);
+      iconElement.setAttribute("alt", säätilaData.weather[0].description);
+    } catch (error) {
+      console.log(error.message);
+    }
+
 
     const correctAnswer = await haeOikeaVastaus(kysymys[0]); // haetaan kysymyksen oikea vastaus. Kysymys[0] on kysymyksen id
     button1.addEventListener("click", async function(event) {
