@@ -11,7 +11,7 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 
 class Tietokanta:
 
-    def __init__(self, host, port, database, user, password="Suzu"):
+    def __init__(self, host, port, database, user, password="m!näk00d44n"):
         self.host = host
         self.port = port
         self.database = database
