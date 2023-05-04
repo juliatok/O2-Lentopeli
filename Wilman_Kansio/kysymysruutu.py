@@ -13,7 +13,7 @@ cnx = mysql.connector.connect(
     port=3306,
     database='flight_game',
     user='root',
-    password='Suzu',
+    password='assiponi',
     autocommit=True
 )
 
@@ -30,7 +30,6 @@ def get_country():
     result = cursor.fetchall()
     for n in result:
         tulos.append(n)
-    print(tulos[0][1])
     return Response(response=json.dumps(tulos, ensure_ascii=False).encode('utf8')
                     , status=200, mimetype="application/json")
 
@@ -45,26 +44,29 @@ Palauttaa lentokentän nimen
 def get_kenttä(maa):
     print("Arvottu maa:", maa)
     kentät = []
-    sql = "select airport.name from airport, maat where nimi = '" + str(
+    sql = "select airport.name, airport.municipality from airport, maat where nimi = '" + str(
         maa) + "' and airport.iso_country = maat.iso_country and type = 'large_airport' order by rand() limit 1"
     cursor = cnx.cursor()
     cursor.execute(sql)
     result = cursor.fetchall()
     length = len(result)
-    print("Arvottu kenttä:", result)
+
     if length != 0:
         for n in result:
             kentät.append(n[0])
+            kentät.append(n[1])
+            print(kentät)
         return Response(response=json.dumps(kentät, ensure_ascii=False).encode('utf8')
                         , status=200, mimetype="application/json")
     else:
-        sql = "select airport.name from airport, maat where nimi = '" + str(
+        sql = "select airport.name, airport.municipality from airport, maat where nimi = '" + str(
             maa) + "' and airport.iso_country = maat.iso_country and type = 'medium_airport' order by rand() limit 1"
         cursor = cnx.cursor()
         cursor.execute(sql)
         result = cursor.fetchall()
         for n in result:
             kentät.append(n[0])
+            kentät.append(n[1])
         return Response(response=json.dumps(kentät, ensure_ascii=False).encode('utf8')
                         , status=200, mimetype="application/json")
 
@@ -84,6 +86,19 @@ def get_question(id):
     for n in kysyttava_kysymys:
         kysymys.append(n)
     print("Kysyttävä kysymys:",kysymys[1])
+    return Response(response=json.dumps(kysymys, ensure_ascii=False).encode('utf8')
+                    , status=200, mimetype="application/json")
+
+@app.route('/haeoikeavastaus/<id>')
+def get_correct_question(id):
+    kysymys = []
+    sql = "select oikein from vastaukset where id = '" + str(id) + "'"
+    cursor = cnx.cursor()
+    cursor.execute(sql)
+    kysymykset = cursor.fetchall()
+    print("Oikea vastaus:",kysymykset[0])
+    for n in kysymykset:
+        kysymys.append(n)
     return Response(response=json.dumps(kysymys, ensure_ascii=False).encode('utf8')
                     , status=200, mimetype="application/json")
 

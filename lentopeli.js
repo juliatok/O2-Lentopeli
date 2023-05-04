@@ -12,7 +12,7 @@ const maabutton1 = document.getElementById('maa1_b')
 const maabutton2 = document.getElementById('maa2_b')
 const maabutton3 = document.getElementById('maa3_b')
 
-let pisteet = 200;
+let pisteet = 0;
 let matka = 3000;
 
 const maaLista = [];
@@ -33,9 +33,10 @@ async function getCountries() {
 }
 
 function toQuestions(username, homeCountry) {
-    localStorage.setItem("username",username)
-    localStorage.setItem("homecountry",homeCountry)
-    localStorage.setItem("current_country",homeCountry)
+    localStorage.setItem("username", username);
+    localStorage.setItem("homeCountry",homeCountry);
+    localStorage.setItem("current_country",homeCountry);
+    localStorage.setItem("pisteet", pisteet)
     window.location.href = "Maavalinta.html";
 }
 
@@ -53,7 +54,6 @@ async function get_Countries() {
 }
 
 async function listCountries() {
-    console.log(username,homeCountry)
     get_Countries().then((potential_countries) => {
         maabutton1.innerHTML = potential_countries[0];
         maabutton1.value = potential_countries[0];
@@ -80,7 +80,6 @@ async function update_selected_country(current_country){
 
 async function main() {
   try {
-
       try {
           getCountries().then((countries) => {
               console.log(countries)
@@ -111,13 +110,14 @@ async function main() {
 
 
     try {
-          username = localStorage.getItem(username)
-          homeCountry = localStorage.getItem(homeCountry)
-          current_country = localStorage.getItem(current_country)
-      document.getElementById("nimi").innerHTML = username;
-      document.getElementById("kotimaa").innerHTML = homeCountry;
-      document.getElementById("nykyinen_maa").innerHTML = current_country;
+          const kayttaja = localStorage.getItem("username")
+          const kotimaa = localStorage.getItem("homeCountry")
+          const nykyinen_maa = localStorage.getItem("current_country")
+      document.getElementById("nimi").innerHTML = kayttaja;
+      document.getElementById("kotimaa").innerHTML = kotimaa;
+      document.getElementById("nykyinen_maa").innerHTML = nykyinen_maa;
 
+        const pisteet = localStorage.getItem("pisteet")
       document.getElementById("pisteet_num").innerHTML = pisteet;
       document.getElementById("matka_num").innerHTML = matka + " km"
 
@@ -159,12 +159,24 @@ async function main() {
     const correctAnswer = await haeOikeaVastaus(kysymys[0]); // haetaan kysymyksen oikea vastaus. Kysymys[0] on kysymyksen id
     button1.addEventListener("click", async function(event) {
       checkAnswer(event, correctAnswer); // tarkistetaan onko vastaus oikein
+        setTimeout(() => { // Odottaa kaksi sekuntia ja lataa sivun uudestaan
+      window.location.href = "Maavalinta.html";
+      console.log('Loppu')
+  }, 2000);
     });
     button2.addEventListener("click", async function(event) {
       checkAnswer(event, correctAnswer);
+      setTimeout(() => { // Odottaa kaksi sekuntia ja lataa sivun uudestaan
+      window.location.href = "Maavalinta.html";
+      console.log('Loppu')
+  }, 2000);
     });
     button3.addEventListener("click", async function(event) {
       checkAnswer(event, correctAnswer);
+      setTimeout(() => { // Odottaa kaksi sekuntia ja lataa sivun uudestaan
+      window.location.href = "Maavalinta.html";
+      console.log('Loppu')
+  }, 2000);
     });
   } catch (error) {
     console.log(error.message);
@@ -174,23 +186,37 @@ async function main() {
 async function checkAnswer(event, oikea_vastaus) {
   const selectedAnswer = event.target.innerHTML; // valittu vastaus on sama kuin napin teksti
   console.log("Oikea vastaus:", oikea_vastaus[0][0])
+    pisteet = localStorage.getItem("pisteet")
 
   if (selectedAnswer === oikea_vastaus[0][0]) { // valittu vastaus on sama kuin oikea vastaus
     event.target.style.backgroundColor = "green";
     document.getElementById("tulos").style.color = "green";
     document.getElementById("tulos").innerHTML = "<strong>Oikein! +80 pistettä<strong>";
+    pisteet = pisteet=+80
+    localStorage.setItem("pisteet", pisteet)
   } else { // valittu vastaus on eri kuin oikea vastaus
     event.target.style.backgroundColor = "#E34234";
     document.getElementById("tulos").style.color = "#E34234";
     document.getElementById("tulos").innerHTML = "<strong>Väärin! -20 pistettä<strong>";
+    if (pisteet < 0){
+
+        pisteet = pisteet-20
+        localStorage.setItem("pisteet", pisteet)
+    }
   }
   button1.disabled = true; // Ottaa napit pois käytöstä
   button2.disabled = true;
   button3.disabled = true;
 
-  setTimeout(() => { // Odottaa kaksi sekuntia ja lataa sivun uudestaan
-     window.location.href = "Maavalinta.html";
-  }, 2000);
+  let kysymykset = localStorage.getItem("questionsAsked")
+        kysymykset++;
+        localStorage.setItem("questionsAsked",kysymykset)
+        console.log("KYSYMYKSIÄ KYSYTTY:",kysymykset)
+  if (kysymykset === 5) {
+        localStorage.setItem("questionsAsked",0)
+        console.log('Tuloksiin')
+        window.location.href = "tulokset.html";
+    }
 }
 
 async function haeOikeaVastaus(kysymys_id) {
@@ -259,7 +285,6 @@ async function maabutton_listner(){
     setTimeout(() => { // Odottaa kaksi sekuntia ja lataa kysymys sivun
         window.location.href = "kysymysruutu.html";
         }, 2000);
-    return current_country
 
     });
     maabutton2.addEventListener('click', function (event){

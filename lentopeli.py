@@ -156,6 +156,13 @@ class Tietokanta:
             tulos.append(n)
         return tulos
 
+    def tuloksenlisays(self, username, pisteet):
+        sql = "insert into käyttäjä(nimi,pisteet) values ('" + username + "', '" + str(pisteet) + "')"
+        kursori = self.cnx.cursor()
+        kursori.execute(sql)
+        self.cnx.commit()
+
+
 
 @app.route('/countryoptions')
 def get_country_options():
@@ -241,6 +248,16 @@ def get_top5_list():
     print(top5)
 
     return Response(response=json.dumps(top5, ensure_ascii=False).encode('utf8'),
+                    status=200, mimetype="application/json")
+
+@app.route('/tuloksenlisays/<username>&<pisteet>')
+def get_tulos():
+    connection = Tietokanta('localhost', 3306, 'flight_game', 'root')
+    connection.connect()
+    tulos = connection.tuloksenlisays()
+    print(tulos)
+
+    return Response(response=json.dumps(tulos, ensure_ascii=False).encode('utf8'),
                     status=200, mimetype="application/json")
 
 @app.route('/haerandommaa/<maa>')
