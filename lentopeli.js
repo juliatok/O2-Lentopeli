@@ -25,7 +25,7 @@ async function update_selected_country(current_country){
 }
 
 function toQuestions() {
-  window.location.href = "Maavalinta.html/";
+  window.location.href = "Maavalinta.html";
 }
 
 getCountries().then((countries) => {
