@@ -294,7 +294,7 @@ Julian Username_page CSS
  */
 
 .käyttäjänimi_laatikko {
-    margin: 3% 20%;
+    margin: 5% 20%;
     display: block;
     overflow: auto;
     background-color: #ededfd;
@@ -363,7 +363,7 @@ h2 {
 
 #lopeta_peli_nappi {
     margin-left: 83%;
-    margin-top: -2%;
+    margin-top: -5%;
     border-radius: 15px;
     border-style: solid;
     border-color: #fca2b3;
@@ -374,6 +374,7 @@ h2 {
     text-align: center;
     padding: 1%;
     cursor: pointer;
+    position: absolute;
 }
 
 #lopeta_peli_nappi:hover {
