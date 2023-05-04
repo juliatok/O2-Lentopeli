@@ -345,6 +345,7 @@ h2 {
     font-family: 'Comfortaa', cursive;
     text-align: center;
     padding: 9%;
+    cursor: pointer;
 }
 
 #nimi_kotimaa_tallennusnappi:hover {
@@ -369,6 +370,7 @@ h2 {
     font-family: 'Comfortaa', cursive;
     text-align: center;
     padding: 1%;
+    cursor: pointer;
 }
 
 #lopeta_peli_nappi:hover {
