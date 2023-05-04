@@ -14,6 +14,10 @@ async function getCountries() {
   }
 }
 
+function toQuestions() {
+  window.location.href = "Maavalinta.html/";
+}
+
 getCountries().then((countries) => {
   document.getElementById("kotimaa_valinta_1_label").innerHTML = countries[0];
   document.getElementById("kotimaa_1").value = countries[0];
@@ -32,6 +36,7 @@ document.getElementById("nimi_kotimaa_tallennusnappi").addEventListener("click",
   if (username.length > 0 && username.length < 21) {
     console.log(username);
     console.log(homeCountry);
+    toQuestions();
   } else {
     alert("Nimen tulee olla 1-20 merkkiä pitkä!");
   }
