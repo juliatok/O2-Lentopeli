@@ -36,7 +36,7 @@ function toQuestions(username, homeCountry) {
     localStorage.setItem("username", username);
     localStorage.setItem("homeCountry",homeCountry);
     localStorage.setItem("current_country",homeCountry);
-    localStorage.setItem("pisteet", pisteet)
+    localStorage.setItem("pisteet", 0)
     window.location.href = "Maavalinta.html";
 }
 
@@ -181,6 +181,12 @@ async function main() {
   } catch (error) {
     console.log(error.message);
     }
+    try {
+      tulosten_tallennus();
+      fetching_top5(document.querySelector('table'))
+    } catch (error) {
+    console.log(error.message);
+    }
 }
 
 async function checkAnswer(event, oikea_vastaus) {
@@ -192,16 +198,16 @@ async function checkAnswer(event, oikea_vastaus) {
     event.target.style.backgroundColor = "green";
     document.getElementById("tulos").style.color = "green";
     document.getElementById("tulos").innerHTML = "<strong>Oikein! +80 pistettä<strong>";
-    pisteet = pisteet=+80
-    localStorage.setItem("pisteet", pisteet)
+    pisteet = +pisteet + 80;
+    localStorage.setItem("pisteet", pisteet);
   } else { // valittu vastaus on eri kuin oikea vastaus
     event.target.style.backgroundColor = "#E34234";
     document.getElementById("tulos").style.color = "#E34234";
     document.getElementById("tulos").innerHTML = "<strong>Väärin! -20 pistettä<strong>";
-    if (pisteet < 0){
+    if (pisteet > 0){
 
-        pisteet = pisteet-20
-        localStorage.setItem("pisteet", pisteet)
+        pisteet -= 20;
+        localStorage.setItem("pisteet", pisteet);
     }
   }
   button1.disabled = true; // Ottaa napit pois käytöstä
@@ -214,9 +220,24 @@ async function checkAnswer(event, oikea_vastaus) {
         console.log("KYSYMYKSIÄ KYSYTTY:",kysymykset)
   if (kysymykset === 5) {
         localStorage.setItem("questionsAsked",0)
-        console.log('Tuloksiin')
+        console.log('Tuloksiin');
         window.location.href = "tulokset.html";
     }
+}
+async function tulosten_tallennus(){
+    try {
+        username = localStorage.getItem('username');
+        pisteet = localStorage.getItem('pisteet');
+    const response = await fetch('http://127.0.0.1:3000/tuloksenlisays/'+ username + pisteet);
+
+    return await response.json();
+  } catch (error) {
+    console.log(error.message);
+  }
+}
+function changeColor(id, color){
+    let svg = document.getElementById(id);
+    svg.style.fill = color;
 }
 
 async function haeOikeaVastaus(kysymys_id) {
@@ -281,6 +302,8 @@ async function maabutton_listner(){
     changeColor(current_country, 'red')
     console.log(maaLista)
     maabutton1.disabled = true;
+    maabutton2.disabled = true;
+    maabutton3.disabled = true;
 
     setTimeout(() => { // Odottaa kaksi sekuntia ja lataa kysymys sivun
         window.location.href = "kysymysruutu.html";
@@ -298,7 +321,9 @@ async function maabutton_listner(){
         maaLista.push(current_country)
         changeColor(current_country, 'red')
         console.log(maaLista)
+        maabutton1.disabled = true;
         maabutton2.disabled = true;
+        maabutton3.disabled = true;
 
         setTimeout(() => { // Odottaa kaksi sekuntia ja lataa kysymys sivun
             window.location.href = "kysymysruutu.html";
@@ -318,6 +343,8 @@ async function maabutton_listner(){
         maaLista.push(current_country)
         changeColor(current_country, 'red')
         console.log(maaLista)
+        maabutton1.disabled = true;
+        maabutton2.disabled = true;
         maabutton3.disabled = true;
 
         setTimeout(() => { // Odottaa kaksi sekuntia ja lataa kysymys sivun
@@ -326,9 +353,26 @@ async function maabutton_listner(){
     });
 }
 
-function changeColor(id, color){
-    let svg = document.getElementById(id);
-    svg.style.fill = color;
+async function fetching_top5 (table) {
+    try {
+        const tableBody = table.querySelector('tbody')
+        const response = await fetch('http://127.0.0.1:3000/top5')
+        const data = await response.json()
+        console.log(data)
+        tableBody.innerHTML = "";
+
+        for (const row of data){
+            const rowElement = document.createElement('tr');
+            for (const cellText of row) {
+                const cellElement = document.createElement('td');
+                cellElement.textContent = cellText;
+                rowElement.appendChild(cellElement);
+            }
+            tableBody.appendChild(rowElement);
+        }
+    } catch (error) {
+    console.log(error.message);
+  }
 }
 
 main();

@@ -60,20 +60,29 @@ class Tietokanta:
             cursor = self.cnx.cursor()
             cursor.execute(sql)
             result = cursor.fetchall()
-            """print(result)"""
             for n in result:
                 country = n[0]
-                if country not in country_check:
-                    print(country)
-                    print(country_check)
-                    if country not in potential_countries:
-                        potential_countries.append(country)
-                        kerrat = kerrat + 1
-                    else:
-                        print('Mukana Potential: ' + country)
+                if country not in potential_countries:
+                    potential_countries.append(country)
+                    kerrat = kerrat + 1
                 else:
-                    print('Mukana Visited: ' + country)
+                    print('Mukana Potential: ' + country)
+
         return potential_countries
+
+    """print(result)
+                for n in result:
+                    country = n[0]
+                    if country not in country_check:
+                        print(country)
+                        print(country_check)
+                        if country not in potential_countries:
+                            potential_countries.append(country)
+                            kerrat = kerrat + 1
+                        else:
+                            print('Mukana Potential: ' + country)
+                    else:
+                        print('Mukana Visited: ' + country)"""
 
     def hae_kenttä(self, maa):
         print("Arvottu maa:", maa)
@@ -251,10 +260,11 @@ def get_top5_list():
                     status=200, mimetype="application/json")
 
 @app.route('/tuloksenlisays/<username>&<pisteet>')
-def get_tulos():
+def get_tulos(username,pisteet):
+    print(username,pisteet)
     connection = Tietokanta('localhost', 3306, 'flight_game', 'root')
     connection.connect()
-    tulos = connection.tuloksenlisays()
+    tulos = connection.tuloksenlisays(username,pisteet)
     print(tulos)
 
     return Response(response=json.dumps(tulos, ensure_ascii=False).encode('utf8'),
