@@ -71,10 +71,10 @@ Petran Maavalita CSS
 }
 
 .alkutiedot {
-    width: 15%;
+    width: 50%;
     height: 115px;
     padding-top: 10px;
-    padding-left: 20px;
+    padding-left: 10px;
     float: left;
 }
 
@@ -125,6 +125,7 @@ Petran Maavalita CSS
     border-style: solid;
     border-width: 3px;
     border-radius: 7px;
+    cursor: pointer;
 }
 
 .maavalita_button button:hover {
@@ -405,12 +406,16 @@ Mian aloitussivu CSS
 }
 
 .start h2 {
-    padding-top: 15px;
+    padding-top: 30px;
+    margin-left: 50px;
+    margin-right: 50px;
     text-align: center;
+    font-size: 20px;
 }
 
 .start a {
     text-decoration: none;
+    font-size: 40px;
 }
 
 .tulokset {
